@@ -1,15 +1,23 @@
 package tools
 
 import (
+	"errors"
 	"io"
 	"net/http"
 	"os"
 )
 
 //	download a file via HTTP GET to a local destination
-func HTTPdownload(src string, dest string) error {
+//	url: absolute URL where the file is located
+//	dest: absolute path including the filename
+func HTTPdownload(url string, dest string) error {
+	//	make sure destination does not already exist
+	if FileExist(dest) {
+		return errors.New("dest file already exists")
+	}
+
 	var err error
-	resp, err := http.Get(src)
+	resp, err := http.Get(url)
 	if err != nil {
 		return err
 	}
