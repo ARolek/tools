@@ -4,13 +4,12 @@ import (
 	"archive/zip"
 	"bufio"
 	"io"
-	"log"
 	"os"
 	"path/filepath"
 )
 
-//	unzips a file that contains one or more files to a destination
-//	directory and creates the directory if it does not exist
+//	unzips a zip archive containing one or more files to a destination
+//	directory and creates the destination directory if it does not exist
 func Unzip(src string, destRoot string) error {
 	//	 open our archive for reading
 	reader, err := zip.OpenReader(src)
