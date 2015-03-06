@@ -2,6 +2,8 @@ package tools
 
 import (
 	"crypto/md5"
+	"fmt"
+	"io"
 )
 
 //	converts a string to an MD5 hash
