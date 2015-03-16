@@ -16,7 +16,6 @@ func HTTPdownload(url, dest string) (err error) {
 		return errors.New("dest file already exists")
 	}
 
-	var err error
 	resp, err := http.Get(url)
 	if err != nil {
 		return
